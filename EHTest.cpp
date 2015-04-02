@@ -1,3 +1,4 @@
+// http://stacktrace.sourceforge.net
 
 #ifdef _WIN32
 
