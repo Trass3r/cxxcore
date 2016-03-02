@@ -8,6 +8,7 @@
 constexpr float PI = 3.1415926535897932384626433832795f;
 
 attr_pure
+static inline
 constexpr float sinhelper(float x)
 {
 	// x in [0, pi/2]
@@ -39,7 +40,8 @@ constexpr float sinhelper(float x)
 }
 
 attr_pure
-float fastsinf(float x)
+static inline
+constexpr float fastsinf(float x)
 {
 	// working range [0, pi/2]
 	const float C =  PI / 2;
@@ -64,13 +66,17 @@ float fastsinf(float x)
 	}
 }
 
+namespace
+{
 struct SinCos
 {
 	float s = 0;
 	float c = 0;
 };
+}
 
 attr_pure
+static inline
 constexpr SinCos fastsincosf(float x)
 {
 	// working range [0, pi/2]

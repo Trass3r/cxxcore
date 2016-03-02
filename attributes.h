@@ -10,17 +10,16 @@
 #define attr_checkignoredresult _Pragma("GCC diagnostic error \"-Wunused-result\"") \
                                 __attribute__ ((warn_unused_result))
 #define forceinline             __attribute__((always_inline))
-#define noinline                __attribute__((__noinline__))
+#define neverinline             __attribute__((__noinline__))
 
 #elif _MSC_VER
 
-#define builtin_unreachable() __assume(0)
-#define constexpr const
+#define builtin_unreachable()   __assume(0)
 
 #define attr_pure               __declspec(noalias)
 #define attr_deprecated(msg)    __declspec(deprecated(msg))
 #define attr_checkignoredresult _Check_return_
 #define forceinline             __forceinline
-#define noinline                __declspec(noinline)
+#define neverinline             __declspec(noinline)
 
 #endif
